@@ -1,0 +1,45 @@
+.mat-drawer-container {
+  height: 100vh;
+}
+.sidenav {
+  width: 300px;
+}
+.logo-container {
+  border-bottom: 1px solid rgba(111, 111, 111, 0.25);
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  height: 56px;
+}
+mat-toolbar,
+mat-toolbar-row {
+  min-height: 56px;
+  height: 56px;
+}
+ul {
+  margin: 0;
+}
+.menu-items {
+  list-style-type: none;
+  padding-left: 0;
+
+  li {
+    padding: 0 16px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: ease-in-out 150ms;
+
+    mat-icon {
+      margin-right: 16px;
+    }
+    &:hover {
+      background-color: rgba(111, 111, 111, 0.25);
+    }
+  }
+}
+.router-container {
+  padding: 16px 60px 0;
+}
