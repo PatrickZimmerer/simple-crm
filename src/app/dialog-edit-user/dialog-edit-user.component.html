@@ -1,6 +1,6 @@
 <div class="dialog-wrap">
   <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
-  <h1 class="add-new-user-p" mat-dialog-title>Edit User Details</h1>
+  <h1 class="add-new-user-p" mat-dialog-title>Add User</h1>
   <div mat-dialog-content>
     <div>
       <mat-form-field appearance="fill" class="mr-16">
@@ -14,7 +14,7 @@
         <!-- <mat-hint>Please enter your first name</mat-hint> -->
       </mat-form-field>
 
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" class="mr-16">
         <mat-label>Last Name</mat-label>
         <input
           [disabled]="loading"
@@ -39,7 +39,7 @@
     </div>
     <div class="mr-16">
       <mat-form-field color="accent" appearance="fill" class="center fullwidth">
-        <mat-label>Birth Date</mat-label>
+        <mat-label>Choose a date</mat-label>
         <input
           [disabled]="loading"
           [(ngModel)]="birthDate"
@@ -54,5 +54,19 @@
         <mat-datepicker #picker1></mat-datepicker>
       </mat-form-field>
     </div>
+  </div>
+  <div mat-dialog-actions>
+    <button [disabled]="loading" mat-button (click)="dialogRef.close()">
+      Cancel
+    </button>
+    <button
+      mat-button
+      [disabled]="loading"
+      (click)="saveUser()"
+      [mat-dialog-close]=""
+      cdkFocusInitial
+    >
+      Save
+    </button>
   </div>
 </div>

@@ -1,52 +1,53 @@
 <div class="dialog-wrap">
   <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
-  <h1 class="add-new-user-p" mat-dialog-title>Edit Adress</h1>
+  <h1 class="add-new-user-p" mat-dialog-title>Edit Address</h1>
+  <div mat-dialog-content>
+    <div class="mr-16">
+      <mat-form-field appearance="fill" class="center fullwidth">
+        <mat-label>Streetname and Housenumber</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.street"
+          matInput
+          placeholder="Street Name"
+        />
+      </mat-form-field>
+    </div>
 
-  <div class="mr-16">
-    <mat-form-field appearance="fill" class="center fullwidth">
-      <mat-label>Streetname and Housenumber</mat-label>
-      <input
-        [disabled]="loading"
-        [(ngModel)]="user.street"
-        matInput
-        placeholder="Street Name"
-      />
-    </mat-form-field>
+    <div>
+      <mat-form-field appearance="fill" class="mr-16">
+        <mat-label>Zip code</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.zipCode"
+          matInput
+          placeholder="ZIP Code"
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="mr-16">
+        <mat-label>City</mat-label>
+        <input
+          [disabled]="loading"
+          [(ngModel)]="user.city"
+          matInput
+          placeholder="City"
+        />
+      </mat-form-field>
+    </div>
   </div>
-
-  <div>
-    <mat-form-field appearance="fill" class="mr-16">
-      <mat-label>Zip code</mat-label>
-      <input
-        [disabled]="loading"
-        [(ngModel)]="user.zipCode"
-        matInput
-        placeholder="ZIP Code"
-      />
-    </mat-form-field>
-
-    <mat-form-field appearance="fill" class="mr-16">
-      <mat-label>City</mat-label>
-      <input
-        [disabled]="loading"
-        [(ngModel)]="user.city"
-        matInput
-        placeholder="City"
-      />
-    </mat-form-field>
+  <div mat-dialog-actions>
+    <button [disabled]="loading" mat-button (click)="dialogRef.close()">
+      Cancel
+    </button>
+    <button
+      mat-button
+      [disabled]="loading"
+      (click)="saveUser()"
+      [mat-dialog-close]=""
+      cdkFocusInitial
+    >
+      Save
+    </button>
   </div>
-</div>
-<div mat-dialog-actions>
-  <button [disabled]="loading" mat-button (click)="dialogRef.close()">
-    Cancel
-  </button>
-  <button
-    mat-button
-    [disabled]="loading"
-    (click)="saveUser()"
-    [mat-dialog-close]=""
-    cdkFocusInitial
-  >
-    Save
-  </button>
 </div>
