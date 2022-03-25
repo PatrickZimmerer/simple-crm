@@ -3,3 +3,41 @@
   right: 56px;
   bottom: 56px;
 }
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  th {
+    font-size: 14px;
+    background-color: #424242;
+    text-align: start;
+  }
+  tr {
+    border-bottom: 1px solid rgba(111, 111, 111, 0.25);
+    cursor: pointer;
+    transition: ease-in-out 150ms;
+    &:hover {
+      background-color: rgba(111, 111, 111, 0.25);
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+    &:first-child {
+      cursor: unset;
+      &:hover {
+        background-color: unset;
+      }
+    }
+    td {
+      height: 48px;
+      &:first-child {
+        padding-left: 16px;
+      }
+    }
+    th {
+      height: 48px;
+      &:first-child {
+        padding-left: 16px;
+      }
+    }
+  }
+}

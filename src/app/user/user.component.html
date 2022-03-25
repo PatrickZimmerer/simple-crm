@@ -1,4 +1,22 @@
-<p>user works!</p>
+<mat-card>
+  <table class="user-table">
+    <tr>
+      <th>Name</th>
+      <th>E-Mail</th>
+      <th>City</th>
+      <th>Zip-Code</th>
+    </tr>
+    <tr
+      [routerLink]="['/user/' + user.customIdName]"
+      *ngFor="let user of allUsers"
+    >
+      <td>{{ user.firstName }} {{ user.lastName }}</td>
+      <td>{{ user.eMail }}</td>
+      <td>{{ user.city }}</td>
+      <td>{{ user.zipCode }}</td>
+    </tr>
+  </table>
+</mat-card>
 
 <button
   class="add-user-btn"

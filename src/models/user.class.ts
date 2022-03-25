@@ -1,10 +1,11 @@
 export class User {
-  firstName: string;
-  lastName: string;
-  birthDate: number;
-  street: string;
-  zipCode: number;
-  city: string;
+  firstName: string = '';
+  lastName: string = '';
+  birthDate: number = 0;
+  street: string = '';
+  zipCode: number = 0;
+  city: string = '';
+  eMail: string = '';
 
   constructor(obj?: any) {
     this.firstName = obj ? obj.firstName : '';
@@ -13,5 +14,18 @@ export class User {
     this.street = obj ? obj.street : '';
     this.zipCode = obj ? obj.zipCode : '';
     this.city = obj ? obj.city : '';
+    this.eMail = obj ? obj.eMail : '';
+  }
+
+  public toJSON() {
+    return {
+      firstName: this.firstName,
+      lastName: this.lastName,
+      birthDate: this.birthDate,
+      street: this.street,
+      zipCode: this.zipCode,
+      city: this.city,
+      eMail: this.eMail,
+    };
   }
 }
