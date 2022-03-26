@@ -27,6 +27,8 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
 import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +60,8 @@ import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-ad
     MatCardModule,
     MatTableModule,
     MatMenuModule,
+    OverlayModule,
+    ScrollingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
