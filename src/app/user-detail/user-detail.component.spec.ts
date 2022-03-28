@@ -1,7 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ActivatedRoute } from '@angular/router';
-
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { UserDetailComponent } from './user-detail.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { environment } from 'src/environments/environment';
+import { MatMenuModule } from '@angular/material/menu';
 
 describe('UserDetailComponent', () => {
   let component: UserDetailComponent;
@@ -10,7 +14,20 @@ describe('UserDetailComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [UserDetailComponent],
-      providers: [ActivatedRoute],
+      imports: [
+        RouterModule.forRoot([]),
+        AngularFireModule.initializeApp(environment.firebase),
+        AngularFirestoreModule,
+        MatDialogModule,
+        MatMenuModule,
+      ],
+      providers: [
+        {
+          provide: MatDialogRef,
+          ActivatedRoute,
+          useValue: {},
+        },
+      ],
     }).compileComponents();
   });
 

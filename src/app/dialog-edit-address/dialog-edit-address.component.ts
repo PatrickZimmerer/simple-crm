@@ -13,7 +13,7 @@ import {
   styleUrls: ['./dialog-edit-address.component.scss'],
 })
 export class DialogEditAddressComponent implements OnInit {
-  user: User;
+  user: User = new User();
   userId: string;
   loading: boolean = false;
   constructor(
@@ -24,15 +24,17 @@ export class DialogEditAddressComponent implements OnInit {
 
   ngOnInit(): void {}
   saveUser() {
-    this.loading = true;
-    this.firestore
-      .collection('users')
-      .doc(this.userId)
-      .update(this.user.toJSON())
-      .then(() => {
-        this.loading = false;
-        this.dialogRef.close();
-        console.log('edited address', this.user);
-      });
+    if (this.user) {
+      this.loading = true;
+      this.firestore
+        .collection('users')
+        .doc(this.userId)
+        .update(this.user.toJSON())
+        .then(() => {
+          this.loading = false;
+          this.dialogRef.close();
+          console.log('edited address', this.user);
+        });
+    }
   }
 }

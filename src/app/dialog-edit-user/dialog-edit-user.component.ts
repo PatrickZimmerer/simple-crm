@@ -14,7 +14,7 @@ import {
 })
 export class DialogEditUserComponent implements OnInit {
   birthDate: Date;
-  user: User;
+  user: User = new User();
   userId: string;
   loading: boolean = false;
   constructor(
@@ -25,14 +25,16 @@ export class DialogEditUserComponent implements OnInit {
 
   ngOnInit(): void {}
   saveUser() {
-    this.firestore
-      .collection('users')
-      .doc(this.userId)
-      .update(this.user.toJSON())
-      .then(() => {
-        this.loading = false;
-        this.dialogRef.close();
-        console.log('edited details', this.user);
-      });
+    if (this.userId) {
+      this.firestore
+        .collection('users')
+        .doc(this.userId)
+        .update(this.user.toJSON())
+        .then(() => {
+          this.loading = false;
+          this.dialogRef.close();
+          console.log('edited details', this.user);
+        });
+    }
   }
 }
